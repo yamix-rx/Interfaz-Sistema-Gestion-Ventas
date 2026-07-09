@@ -1,0 +1,125 @@
+/**
+ * src/styles/modo-daltonico.css
+ *
+ * Modo Daltónico — Paleta segura para deuteranopia y protanopia
+ * (los tipos más comunes, ~8% de hombres).
+ *
+ * Principio: eliminar la distinción rojo/verde y reemplazar por
+ * azul (#0077BB) / naranja (#EE7733) que son distinguibles por
+ * todos los tipos de daltonismo según el estándar Bang Wong (2011).
+ *
+ * Paleta Bang Wong (Nature Methods, 2011):
+ *   Azul:        #0077BB  ← reemplaza verde (éxito, activo)
+ *   Naranja:     #EE7733  ← reemplaza amarillo/advertencia
+ *   Rojo seguro: #CC3311  ← versión de rojo visible para daltónicos
+ *   Celeste:     #33BBEE  ← acento secundario
+ *   Blanco:      #FFFFFF
+ */
+
+/* ── Colores de acento/primario → azul seguro ───────────────────────────────── */
+html.modo-daltonico [class*="text-[oklch(0.488_0.243_264"] {
+  color: #33BBEE !important;
+}
+html.modo-daltonico [class*="bg-[oklch(0.488_0.243_264"] {
+  background-color: #0077BB !important;
+}
+html.modo-daltonico [class*="border-[oklch(0.488"] {
+  border-color: #0077BB !important;
+}
+
+/* ── Verde (éxito, Vendedor, stock OK) → azul ───────────────────────────────── */
+html.modo-daltonico [class*="text-[oklch(0.696_0.17_162"] {
+  color: #0077BB !important;
+}
+html.modo-daltonico [class*="bg-[oklch(0.696_0.17_162"] {
+  background-color: #0077BB !important;
+}
+
+/* ── Amarillo/Supervisor → naranja seguro ────────────────────────────────────── */
+html.modo-daltonico [class*="text-[oklch(0.769_0.188_70"] {
+  color: #EE7733 !important;
+}
+html.modo-daltonico [class*="bg-[oklch(0.769_0.188_70"] {
+  background-color: #EE7733 !important;
+}
+
+/* ── Rojo/errores → rojo seguro para daltónicos ─────────────────────────────── */
+html.modo-daltonico [class*="text-destructive"],
+html.modo-daltonico [class*="text-red"] {
+  color: #CC3311 !important;
+}
+html.modo-daltonico [class*="bg-destructive"],
+html.modo-daltonico [class*="bg-red"] {
+  background-color: rgba(204, 51, 17, 0.15) !important;
+  border-color: #CC3311 !important;
+}
+
+/* ── Naranja (vencimiento próximo) → naranja Bang Wong ──────────────────────── */
+html.modo-daltonico [class*="text-[oklch(0.645_0.246_16"] {
+  color: #EE7733 !important;
+}
+html.modo-daltonico [class*="bg-[oklch(0.396_0.141"] {
+  background-color: rgba(238, 119, 51, 0.15) !important;
+}
+
+/* ── Botón activo del menú (sidebar) ─────────────────────────────────────────── */
+html.modo-daltonico aside nav button[aria-current="page"] {
+  background-color: #0077BB !important;
+  color: #ffffff !important;
+}
+
+/* ── Badges de estado: Recibido/Activo/Exitoso ───────────────────────────────── */
+/* Los badges usan colores oklch inline — los reescribimos por sus roles semánticos */
+
+/* "Recibido" / "Activo" / estado verde → azul */
+html.modo-daltonico span[class*="bg-[oklch(0.696"] {
+  background-color: rgba(0, 119, 187, 0.2) !important;
+  color: #33BBEE !important;
+  border: 1px solid #0077BB !important;
+}
+
+/* "Pendiente" / estado amarillo → naranja */
+html.modo-daltonico span[class*="bg-[oklch(0.769"] {
+  background-color: rgba(238, 119, 51, 0.2) !important;
+  color: #EE7733 !important;
+  border: 1px solid #EE7733 !important;
+}
+
+/* ── Gráficas Recharts ───────────────────────────────────────────────────────── */
+/* Línea del gráfico de ventas */
+html.modo-daltonico .recharts-line-curve {
+  stroke: #0077BB !important;
+}
+html.modo-daltonico .recharts-line-dot {
+  fill: #0077BB !important;
+  stroke: #0077BB !important;
+}
+/* Barras del gráfico de productos más vendidos */
+html.modo-daltonico .recharts-bar-rectangle path {
+  fill: #EE7733 !important;
+}
+
+/* ── Indicador en el Sidebar ─────────────────────────────────────────────────── */
+html.modo-daltonico .daltonico-badge {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  padding: 2px 6px;
+  background-color: rgba(0, 119, 187, 0.2);
+  color: #33BBEE;
+  border-radius: 4px;
+  border: 1px solid #0077BB;
+}
+
+/* ── Foco visible (combinable con alto contraste) ───────────────────────────── */
+html.modo-daltonico *:focus-visible {
+  outline: 2px solid #EE7733 !important;
+  outline-offset: 2px !important;
+}
+
+/* ── Historial login — Exitoso/Fallido ───────────────────────────────────────── */
+html.modo-daltonico .text-green-400  { color: #0077BB !important; }
+html.modo-daltonico .bg-green-500\/10 { background-color: rgba(0,119,187,0.12) !important; }
+html.modo-daltonico .text-red-400    { color: #CC3311 !important; }
+html.modo-daltonico .bg-red-500\/10  { background-color: rgba(204,51,17,0.12) !important; }

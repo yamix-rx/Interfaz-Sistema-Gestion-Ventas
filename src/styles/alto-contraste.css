@@ -1,0 +1,221 @@
+/**
+ * src/styles/alto-contraste.css
+ *
+ * Modo de Alto Contraste — WCAG 2.1 (ratio ≥ 4.5:1)
+ * Se activa añadiendo la clase "alto-contraste" al elemento <html>.
+ *
+ * Paleta de alto contraste:
+ *  - Fondo principal:   #000000 (negro puro)
+ *  - Fondo secundario:  #0a0a0a
+ *  - Texto principal:   #ffffff (blanco puro)
+ *  - Texto secundario:  #ffff00 (amarillo — ratio 19.8:1 sobre negro)
+ *  - Acento/links:      #00ffff (cian — ratio 8.9:1 sobre negro)
+ *  - Bordes:            #ffffff
+ *  - Alertas/errores:   #ff4444
+ *  - Éxito:             #00ff88
+ */
+
+/* ── Variables de tema ──────────────────────────────────────────────────────── */
+html.alto-contraste {
+  --background:       #000000;
+  --foreground:       #ffffff;
+  --muted:            #1a1a1a;
+  --muted-foreground: #cccccc;
+  --border:           #ffffff;
+  --accent:           #00ffff;
+  --accent-hover:     #00cccc;
+  --primary:          #00ffff;
+  --destructive:      #ff4444;
+  --success:          #00ff88;
+  --warning:          #ffff00;
+}
+
+/* ── Fondo y texto global ───────────────────────────────────────────────────── */
+html.alto-contraste body,
+html.alto-contraste #root {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────────────────────── */
+html.alto-contraste aside {
+  background-color: #0a0a0a !important;
+  border-color: #ffffff !important;
+}
+
+html.alto-contraste aside h1,
+html.alto-contraste aside p,
+html.alto-contraste aside span {
+  color: #ffffff !important;
+}
+
+html.alto-contraste aside button {
+  color: #cccccc !important;
+}
+
+html.alto-contraste aside button:hover,
+html.alto-contraste aside button.active-nav {
+  background-color: #1a1a1a !important;
+  color: #00ffff !important;
+}
+
+/* Botón activo del menú */
+html.alto-contraste aside nav button[class*="bg-[oklch"] {
+  background-color: #00ffff !important;
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+/* ── Tarjetas y paneles ─────────────────────────────────────────────────────── */
+html.alto-contraste [class*="bg-[oklch(0.205"] {
+  background-color: #0a0a0a !important;
+  border-color: #ffffff !important;
+}
+
+html.alto-contraste [class*="bg-[oklch(0.269"] {
+  background-color: #1a1a1a !important;
+  border-color: #666666 !important;
+}
+
+/* ── Textos ─────────────────────────────────────────────────────────────────── */
+html.alto-contraste .text-white,
+html.alto-contraste [class*="text-white"] {
+  color: #ffffff !important;
+}
+
+html.alto-contraste .text-muted-foreground,
+html.alto-contraste [class*="text-muted"] {
+  color: #cccccc !important;
+}
+
+/* Textos de acento */
+html.alto-contraste [class*="text-[oklch(0.488"] {
+  color: #00ffff !important;
+}
+
+html.alto-contraste [class*="text-[oklch(0.696"] {
+  color: #00ff88 !important;
+}
+
+html.alto-contraste [class*="text-[oklch(0.769"] {
+  color: #ffff00 !important;
+}
+
+html.alto-contraste [class*="text-[oklch(0.645"] {
+  color: #ff6644 !important;
+}
+
+/* ── Inputs y selects ───────────────────────────────────────────────────────── */
+html.alto-contraste input,
+html.alto-contraste select,
+html.alto-contraste textarea {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
+  outline-color: #00ffff !important;
+}
+
+html.alto-contraste input::placeholder,
+html.alto-contraste textarea::placeholder {
+  color: #999999 !important;
+}
+
+html.alto-contraste input:focus,
+html.alto-contraste select:focus,
+html.alto-contraste textarea:focus {
+  border-color: #00ffff !important;
+  box-shadow: 0 0 0 2px #00ffff40 !important;
+}
+
+/* ── Botones principales ────────────────────────────────────────────────────── */
+html.alto-contraste [class*="bg-[oklch(0.488_0.243_264"] {
+  background-color: #00ffff !important;
+  color: #000000 !important;
+  font-weight: bold;
+}
+
+html.alto-contraste [class*="bg-[oklch(0.438"] {
+  background-color: #00cccc !important;
+  color: #000000 !important;
+}
+
+/* ── Tablas ─────────────────────────────────────────────────────────────────── */
+html.alto-contraste table {
+  border-color: #ffffff !important;
+}
+
+html.alto-contraste tr {
+  border-color: #444444 !important;
+}
+
+html.alto-contraste tr:hover {
+  background-color: #1a1a1a !important;
+}
+
+html.alto-contraste th {
+  color: #ffffff !important;
+  background-color: #0a0a0a !important;
+}
+
+html.alto-contraste td {
+  color: #ffffff !important;
+}
+
+/* ── Badges de rol/estado ───────────────────────────────────────────────────── */
+html.alto-contraste [class*="rounded-full"] {
+  border: 1px solid currentColor !important;
+}
+
+/* ── Login ──────────────────────────────────────────────────────────────────── */
+html.alto-contraste .min-h-screen {
+  background-color: #000000 !important;
+}
+
+html.alto-contraste [class*="bg-[oklch(0.205_0_0)] border"] {
+  background-color: #0a0a0a !important;
+  border-color: #ffffff !important;
+}
+
+/* ── Alertas ────────────────────────────────────────────────────────────────── */
+html.alto-contraste [class*="bg-red"],
+html.alto-contraste [class*="bg-destructive"] {
+  background-color: #3a0000 !important;
+  border-color: #ff4444 !important;
+}
+
+html.alto-contraste [class*="text-red"],
+html.alto-contraste [class*="text-destructive"] {
+  color: #ff6666 !important;
+}
+
+html.alto-contraste [class*="bg-green"],
+html.alto-contraste [class*="bg-[oklch(0.696"] {
+  background-color: #003a10 !important;
+  border-color: #00ff88 !important;
+}
+
+html.alto-contraste [class*="bg-orange"] {
+  background-color: #3a1a00 !important;
+  border-color: #ffaa00 !important;
+}
+
+/* ── Foco visible (navegación por teclado) ──────────────────────────────────── */
+html.alto-contraste *:focus-visible {
+  outline: 3px solid #00ffff !important;
+  outline-offset: 2px !important;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────────────────────── */
+html.alto-contraste ::-webkit-scrollbar {
+  width: 8px;
+  background: #000000;
+}
+
+html.alto-contraste ::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 4px;
+}
+
+html.alto-contraste ::-webkit-scrollbar-thumb:hover {
+  background: #888888;
+}
